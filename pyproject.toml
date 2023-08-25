@@ -7,6 +7,10 @@ authors=[
 description="bin2ast: a machine learning framework for learning a binary code to abstract syntax tree interpreter"
 version="1.0.0"
 dependencies=[
+    networkx
+    numpy
+    pygraphviz
+    six
 ]
 license={text="Apache 2.0 modified"}
 
