@@ -1,0 +1,20 @@
+# location of the raw dataset folder
+# parent folder of corpora_combined if corpora_combined exists
+raw_data_path: "/media/mule/projects/grasen/nmt_datasets/generated_v2"
+# loading raw data every time and spliting is costly
+# will loop over all the folders inside raw_data_path and find input and output files and
+# use data/prepare_data_v2.py to prepare the data once and save to following location
+pickled_data_path: "pickled_data/v2/with_values"
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# with_values: generate data with actual values => 123 replaced with "1 2 3"
+# no_values: generate data without actual values => 123 replaced with val0
+# set with_values: false for no_values
+with_values: true
+# some bug in the v2 dataset that can not extract correct values of hexadecimal numbers
+# set fix_hex_values to true to fix the bugs in conversion
+# v3 doesn't have this problem -> already fixed in the tokenizer
+# fix the hex values using 2's complement: this is only for the input tokens
+fix_hex_values: true

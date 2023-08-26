@@ -1,0 +1,42 @@
+# used to calculate the bleu score of each sample and store the
+# target, model output and the bleu score
+# store model output and bleu score upto beam width times
+# also store the maximum of the bleu score
+
+# location of the raw dataset folder: uncomment before running on kraken
+# raw_data_path: "/media/mule/projects/grasen/nmt_datasets/generated_v2/corpora_combined"
+# local raw_data_path for testing: commment before running for all samples on kraken
+raw_data_path: "/Users/kcdharma/data/nmt4code/corpora_combined"
+# location of pickled data: uncomment before running on kraken
+# pickled_data_path: "/home/kcdharma/data/nmt4code"
+# local pickled_data_path: used for testing: comment before running on kraken
+pickled_data_path: "/Users/kcdharma/data/nmt4code"
+# hidden dimension size for encoder and decoder
+hidden_dim: 512
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# gpu index to train on if available
+gpu_index: 0
+# batch size for training/validation/testing
+batch_size: 256
+# embedding dimension for input
+input_embedding_dim: 256
+# number of layers for lstm
+n_layers: 1
+# dropout to use for lstm
+dropout: 0.5
+# embedding dimension for output
+output_embedding_dim: 256
+# location of trained model: uncomment before running on kraken
+# model_path: "/media/mule/projects/grasen/models/best-model.pt"
+# local model_path: used for testing: comment before running on kraken
+model_path: "/Users/kcdharma/results/kraken/nmt4code/best-model.pt"
+# destination path to store bleu score and beam search results
+# uncomment before running on kraken
+# destination_path: "/media/mule/projects/grasen/results/beam_search"
+# local destination path: used for testing: comment before running on kraken
+destination_path: "/Users/kcdharma/results/local/nmt4code/beam_search"
+# beam width
+beam_width: 5

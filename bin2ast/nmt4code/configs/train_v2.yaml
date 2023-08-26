@@ -1,0 +1,108 @@
+# config file to train our models in kraken
+# location of pickled data
+
+# parameters for dataset [paths and langs]
+# pickled_data_path: "pickled_data/v2/with_values"
+pickled_data_path: "pickled_data/v2"
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# save model to following location
+model_path: "results/v2/models"
+# plot path
+plot_path: "results/v2/plots"
+
+# hyper parameters
+# batch size for training/validation/testing
+batch_size: 128
+# learning rate for the optimizer [encoder and decoder]
+learning_rate: 0.001
+# num epochs to train on
+num_epochs: 10
+# start from pretrained models
+start_from_pretrained: false
+# clip the gradiet to max norm of
+clip: 5
+# along with the loss for the whole epoch, also print the loss for the minibatch
+print_loss_minibatch: false
+
+# parameters for encoder-decoder (basic) and ecoder-decoder with attention
+# embedding dimension for input
+input_embedding_dim: 256
+# number of layers for lstm
+n_layers: 1
+# dropout to use for lstm
+dropout: 0.5
+# embedding dimension for output
+output_embedding_dim: 256
+# hidden dimension size for encoder
+enc_hidden_dim: 512
+# hidden dimension size for decoder
+dec_hidden_dim: 512
+
+# change model type for different model
+# uncomment just one model_type for training
+
+# model_type: "basic"                         # basic enc_dec
+# model_type: "attention"                     # enc_dec with attention
+# model_type: "transformer"                   # transformer
+# model_type: "tree_decoder"                  # transformer encoder and tree decoder
+model_type: "gnn_decoder"                   # transformer encoder and gnn decoder
+
+# parameters for transformer
+# hidden dimension of the transformer: d_model
+transformer_hidden_dim: 256
+# transformer number of heads
+transformer_n_heads: 8
+# encoder number of layers
+transformer_enc_layers: 3
+# decoder number of layers
+transformer_dec_layers: 3
+# position feedforward dimensions
+transformer_pf_dim: 512
+# encoder dropout value
+transformer_enc_dropout: 0.1
+# decoder dropout value
+transformer_dec_dropout: 0.1
+# max length transformer can handle
+transformer_max_length: 1000
+# learning rate for transformer
+transformer_lr: 0.0005
+
+# use data augmentation for training: to improve copy mechanism
+# do not use data augmentation for validation and testing: ensured by setting
+# data_augmentation=False in the dataloader
+# set data_augmentation to false if we are training with with_values
+data_augmentation: false
+
+# tree_decoder: parameters for transformer encoder and tree decoder: model_type: "tree_decoder"
+num_layers_encoder: 3
+parent_feeding: true
+# input_type: "tree" for tree encoder and "sequence" for transformer encoder
+input_type: sequence
+# maximum number of nodes in a tree: [it seems ~300 for v2 dataset: with "eoc" childs]
+max_nodes: 300
+# need different initialization for tree decoder:
+# need different learning rate for tree decoder: need more hyperparameter tuning
+tree_decoder_lr: 0.0005
+tree_decoder_hidden_state_dim: 256
+tree_decoder_embedding_dim: 256
+
+# parameters for gnn decoder
+gnn_h_dim: 256
+gnn_num_layers_encoder: 3
+gnn_num_propagation: 2
+gnn_lr: 0.0005
+gnn_max_nodes: 100
+gnn_n_heads: 8
+gnn_decoder_embedding_dim: 256
+
+# distributed training
+distributed: true
+# gpu index to train on if available: set distributed to false if you want to use one gpu
+# with following gpu index
+gpu_index: 0
+# train tree decoder and gnn decoder with teacher forcing
+use_teacher_forcing: false
+

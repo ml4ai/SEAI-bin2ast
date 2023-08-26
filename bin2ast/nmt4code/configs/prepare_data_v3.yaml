@@ -1,0 +1,13 @@
+# location of the raw dataset folder
+# parent folder of corpora_combined if corpora_combined exists
+raw_data_path: "/media/mule/projects/grasen/nmt_datasets/generated_v3"
+# loading raw data every time and spliting is costly
+# will loop over all the folders inside raw_data_path and find input and output files and
+# create a combined corpora: set it false if already created
+create_corpora_combined: false
+# use data/prepare_data_v3.py to prepare the data once and save to following location
+pickled_data_path: "pickled_data/v3"
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"

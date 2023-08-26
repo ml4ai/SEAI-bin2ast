@@ -1,0 +1,8 @@
+# config file to convert output sequences into a graph [tree] and check if everything is correct or not
+# location of pickled data
+# pickled_data_path: "pickled_data/v2/with_values"
+pickled_data_path: "pickled_data/v2"
+# pickled_data_path: "pickled_data/v3"
+# set data_augmentation to false
+data_augmentation: false
+

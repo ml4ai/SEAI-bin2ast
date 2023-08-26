@@ -1,0 +1,55 @@
+# used to calculate the bleu score of each sample and store the
+# target, model output and the bleu score in a text file
+# or just calculate and display the average bleu score
+# if save_txt_files is set to false
+
+# location of the raw dataset folder
+raw_data_path: "/media/mule/projects/grasen/nmt_datasets/generated_v3/corpora_combined"
+# location of pickled data
+pickled_data_path: "pickled_data/v3"
+# hidden dimension size for encoder
+enc_hidden_dim: 512
+# hidden dimension size for decoder
+dec_hidden_dim: 512
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# gpu index to train on if available
+gpu_index: 0
+# embedding dimension for input
+input_embedding_dim: 256
+# number of layers for lstm
+n_layers: 1
+# dropout to use for lstm
+dropout: 0.5
+# embedding dimension for output
+output_embedding_dim: 256
+# location of trained model
+model_path: "results/v3/models/best-model-transformer-v3.pt"
+destination_path: "results/test_bleu/v3/transformer"
+model_type: "transformer"
+# option to just plot average bleu score without saving all txt files
+save_txt_files: false
+# transformer parameters
+# hidden dimension of the transformer: d_model
+transformer_hidden_dim: 256
+# transformer number of heads
+transformer_n_heads: 8
+# encoder number of layers
+transformer_enc_layers: 3
+# decoder number of layers
+transformer_dec_layers: 3
+# position feedforward dimensions
+transformer_pf_dim: 512
+# encoder dropout value
+transformer_enc_dropout: 0.1
+# decoder dropout value
+transformer_dec_dropout: 0.1
+# max length our models
+max_length: 2000
+
+# evaluate bleu with copy_mechanims vs without copy mechanism
+# set it to false for evaluating bleu score without copy mechanism
+copy_mechanism: true
+
