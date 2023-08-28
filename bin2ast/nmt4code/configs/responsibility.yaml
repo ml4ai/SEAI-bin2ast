@@ -1,0 +1,60 @@
+# Generate the responsibility map for the output sequence wrt to input sequence
+# if save_all: true in yaml file: loop over all test examples
+# create a folder and save the responsibility map along with the predictions
+# else just show the responsibility map for one random example
+
+# location of the raw dataset folder
+raw_data_path: "/media/mule/projects/grasen/nmt_datasets/generated_v3/corpora_combined"
+# raw_data_path: "/Users/kcdharma/data/nmt4code/corpora_combined"
+# location of pickled data
+pickled_data_path: "/home/kcdharma/data/nmt4code/pickled_data/v3"
+# pickled_data_path: "/Users/kcdharma/data/nmt4code/no_values"
+# hidden dimension size for encoder
+enc_hidden_dim: 512
+# hidden dimension size for decoder
+dec_hidden_dim: 512
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# gpu index to train on if available
+gpu_index: 0
+# embedding dimension for input
+input_embedding_dim: 256
+# number of layers for lstm
+n_layers: 1
+# dropout to use for lstm
+dropout: 0.5
+# embedding dimension for output
+output_embedding_dim: 256
+# location of trained model
+# model_path: "/home/kcdharma/results/nmt4code/with_values/best-model-transformer.pt"
+model_path: "/Users/kcdharma/results/nmt4code/no_values/best-model-transformer.pt"
+# destination path to store responsibility map
+# destination_path: "/media/mule/projects/grasen/results/bleu/with_values/transformer"
+# destination_path: "/home/kcdharma/results/nmt4code/test_bleu/with_values/transformer"
+destination_path: "/Users/kcdharma/results/nmt4code/responsibility/transformer"
+# model_type: "attention", "encoder-decoder", "transformer"
+model_type: "transformer"
+# option to just show one image or save responsibility map for every test sample
+save_all: false
+# transformer parameters
+# hidden dimension of the transformer: d_model
+transformer_hidden_dim: 256
+# transformer number of heads
+transformer_n_heads: 8
+# encoder number of layers
+transformer_enc_layers: 3
+# decoder number of layers
+transformer_dec_layers: 3
+# position feedforward dimensions
+transformer_pf_dim: 512
+# encoder dropout value
+transformer_enc_dropout: 0.1
+# decoder dropout value
+transformer_dec_dropout: 0.1
+# max length our models
+max_length: 500
+# produce a list of top-k (top-10) important tokens for the given decoded output token
+top_k: true
+k: 10

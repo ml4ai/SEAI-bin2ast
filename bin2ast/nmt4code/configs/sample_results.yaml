@@ -1,0 +1,30 @@
+# config file to sample some results from validation and test data set
+
+# location of pickled data
+pickled_data_path: "/media/mule/projects/grasen/pickled_data"
+# hidden dimension size for encoder and decoder
+hidden_dim: 512
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# gpu index to sample results on if available
+gpu_index: 0
+# batch size for training/validation/testing
+batch_size: 256
+# embedding dimension for input
+input_embedding_dim: 256
+# number of layers for lstm
+n_layers: 1
+# dropout to use for lstm
+dropout: 0.5
+# embedding dimension for output
+output_embedding_dim: 256
+# provide path to trained model
+model_path: "/media/mule/projects/grasen/models/best-model.pt"
+# number of samples to generate from validation and test set
+# n = 5: will take 5 reference samples from validation and 5 samples from test set and
+#  produce corresponding model outputs: [10 pairs]
+n: 5
+# destination file to store sample.txt file
+destination_path: "/media/mule/projects/grasen/results"

@@ -1,0 +1,11 @@
+# config file for generating tree from a sequence
+
+# sample tcast file
+tcast_path: '/Users/kcdharma/Downloads/analyze_v2_results-for-dharma/data/expr_v2_0238355/expr_v2_0238355--CAST.tcast'
+seq2seq_txt_files_no_values: "/Users/kcdharma/results/nmt4code/txt_files/no_values/seq2seq"
+save_path: '/Users/kcdharma/results/nmt4code/seq2tree'
+test_files:
+  - expr_v2_0240401
+  - expr_v2_0241483
+  - expr_v2_0242189
+  - expr_v2_0238355

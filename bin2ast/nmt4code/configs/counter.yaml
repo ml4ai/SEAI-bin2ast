@@ -1,0 +1,8 @@
+# config file to count the input token counts and output token counts
+
+# location of the raw dataset folder
+raw_data_path: "/Users/kcdharma/data/nmt4code/corpora_combined"
+# location to store input_tokencount and output_tokencount as pickle file
+# input_tokencount: dictionary of input tokens (token_assembly) and their counts
+# output_tokencount: dictionary of output tokens (token_CAST) and their counts
+destination_path: "/Users/kcdharma/data/nmt4code"

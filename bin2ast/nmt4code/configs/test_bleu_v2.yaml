@@ -1,0 +1,82 @@
+# used to calculate the bleu score of each sample and store the
+# target, model output and the bleu score in a text file
+# or just calculate and display the average bleu score
+# if save_txt_files is set to false
+# location of the raw dataset folder
+raw_data_path: "/media/mule/projects/grasen/nmt_datasets/generated_v2/corpora_combined"
+# prediction with values: 123 => "1" "2" "3"
+# set copy_mechanism to false if we are predicting with values
+with_values: false
+# fix hex values in the input file, if we don't need to fix them set it to false
+# we need to fix the hex values for v2 dataset but we don't need for v3 dataset
+fix_hex_values: true
+# location of pickled data
+# change for with_values
+# pickled_data_path: "pickled_data/v2/with_values"
+pickled_data_path: "pickled_data/v2"
+# hidden dimension size for encoder
+enc_hidden_dim: 512
+# hidden dimension size for decoder
+dec_hidden_dim: 512
+# input language: in our case assembly on the input side
+input_lang: "token_assembly"
+# output language: in our case abstract syntax trees
+output_lang: "token_CAST"
+# gpu index to train on if available
+gpu_index: 0
+# batch size for training/validation/testing
+batch_size: 256
+# embedding dimension for input
+input_embedding_dim: 256
+# number of layers for lstm
+n_layers: 1
+# dropout to use for lstm
+dropout: 0.5
+# embedding dimension for output
+output_embedding_dim: 256
+# location of trained model
+model_path: "results/v2/models/best-model-tree_decoder-dist.pt"
+# destination path to store bleu score
+destination_path: "results/v2/test_bleu/tree_decoder"
+# model_type: "attention", "encoder-decoder", "transformer", "tree_decoder"
+model_type: "tree_decoder"
+# option to just plot average bleu score without saving all txt files
+save_txt_files: false
+# transformer parameters
+# hidden dimension of the transformer: d_model
+transformer_hidden_dim: 256
+# transformer number of heads
+transformer_n_heads: 8
+# encoder number of layers
+transformer_enc_layers: 3
+# decoder number of layers
+transformer_dec_layers: 3
+# position feedforward dimensions
+transformer_pf_dim: 512
+# encoder dropout value
+transformer_enc_dropout: 0.1
+# decoder dropout value
+transformer_dec_dropout: 0.1
+# max length our models
+max_length: 1000
+# evaluate bleu with copy_mechanims vs without copy mechanism
+# set it to false for evaluating bleu score without copy mechanism
+copy_mechanism: false
+# aggregate attention over all occurrances of val# in input: only if copy_mechanism is true
+aggregate_attention: false
+# note: aggregation didnot produce any improvements
+# right now we are taking mean attention of each head for copy mechanism
+# should we use specific head instead?
+# comment following for mean
+# currently we have 8 heads: [0-7]
+head_index: false
+
+# tree_decoder: parameters for transformer encoder and tree decoder: model_type: "tree_decoder"
+num_layers_encoder: 6
+parent_feeding: true
+# input_type: "tree" for tree encoder and "sequence" for transformer encoder
+input_type: sequence
+# maximum number of nodes in a tree: [it seems ~300 for v2 dataset: with "eoc" childs]
+max_nodes: 300
+tree_decoder_hidden_state_dim: 256
+tree_decoder_embedding_dim: 256

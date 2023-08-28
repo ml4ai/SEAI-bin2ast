@@ -1,0 +1,29 @@
+# yaml file to generate stats about sequence to tree conversion
+
+# no_values
+# seq2seq
+# location of result txt files
+seq2seq_txt_files_no_values: "/Users/kcdharma/results/nmt4code/txt_files/no_values/seq2seq"
+# location to save the generated stats
+save_path_seq2seq_no_values: '/Users/kcdharma/results/nmt4code/stats/seq2seq/no_values'
+# attention
+attention_txt_files_no_values: "/Users/kcdharma/results/nmt4code/txt_files/no_values/attention"
+# location to save the generated stats
+save_path_attention_no_values: '/Users/kcdharma/results/nmt4code/stats/attention/no_values'
+
+# with values
+seq2seq_txt_files_with_values: "/Users/kcdharma/results/nmt4code/txt_files/with_values/seq2seq"
+# location to save the generated stats
+save_path_seq2seq_with_values: '/Users/kcdharma/results/nmt4code/stats/seq2seq/with_values'
+# attention
+attention_txt_files_with_values: "/Users/kcdharma/results/nmt4code/txt_files/with_values/attention"
+# location to save the generated stats
+save_path_attention_with_values: '/Users/kcdharma/results/nmt4code/stats/attention/with_values'
+
+# if false will randomly sample and save it to save_path
+# if true will generate graph for all structured predictions
+generate_all_structured: false
+# save graph distance
+save_graph_distance: false
+# if true: will highlight nodes that are different in predicted and target trees
+highlight_nodes: true

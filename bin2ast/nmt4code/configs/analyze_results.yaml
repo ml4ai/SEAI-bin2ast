@@ -1,0 +1,22 @@
+# config file for results analysis
+# config file to plot different statistics of the nmt model
+
+# path to token_input_all.pickle file
+# token_input_all: "/Users/kcdharma/data/nmt4code/tokens_input_all.pickle"
+
+# parent folder that contains folder for each input file
+folder_path_v3: "/home/kcdharma/results/nmt4code/test_bleu/v3/transformer"
+# destination path to save images
+destination_path: "/home/kcdharma/results/nmt4code/test_bleu/v3/transformer_plots"
+
+# no_values
+# seq2seq
+# path to txt files generated from the trained model
+seq2seq_txt_files_no_values: "/Users/kcdharma/results/nmt4code/txt_files/no_values/seq2seq"
+# destination directory
+dest_path_seq2seq_no_values: "/Users/kcdharma/results/nmt4code/analysis/no_values/seq2seq"
+# attention
+attention_txt_files_no_values: "/Users/kcdharma/results/nmt4code/txt_files/no_values/attention"
+# destination directory
+dest_path_attention_no_values: "/Users/kcdharma/results/nmt4code/analysis/no_values/attention"
+
